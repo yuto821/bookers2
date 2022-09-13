@@ -1,2 +1,40 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<main>
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+   <%= render 'books/list', books: @books, user: @user, book: @book %>
+  <div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <%= link_to book_path do %>
+        <td>
+          <% if @user.image.attached? %>
+            <%= image_tag current_usar.image, size: "80x80" %>
+          <% else %>
+            <%= image_tag 'default-image', size: "80x80" %>
+          <% end %>
+          <br><%= current_user.name %>
+        </td>
+        <% end %>
+        <td>
+          <%= link_to book_path do %><%= @book_show.title %><% end %>
+        </td>
+        <td>
+          <%= @book_show.body %>
+        </td>
+        <td>
+          <%= link_to"Edit", edit_book_path, class: "btn btn-sm btn-success" %>
+        </td>
+        <td>
+          <%= link_to"Destroy", book_path(@book_show.id), class: "btn btn-sm btn-danger", method: :delete %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+</main>
+
