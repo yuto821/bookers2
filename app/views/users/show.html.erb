@@ -1,5 +1,4 @@
 <main>
-<p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
    <%= render 'books/list', books: @books, user: @user, book: @book %>
@@ -19,11 +18,7 @@
           </thead>
           <tbody>
             <th>
-              <% if book.image.attached? %>
-                <%= link_to user_path do %><%= image_tag book.image, size: "80x80" %><% end %>
-              <% else %>
-                <%= link_to user_path do %><%= image_tag 'default-image', size: "80x80" %><% end %>
-              <% end %>
+                <%= link_to user_path(@user) do %><%= image_tag book.user.get_image(80,80) %><% end %>
             </th>
             <th><%= link_to book_path(book.id) do %><%= book.title %><% end %></th>
             <th><%= book.body %></th>

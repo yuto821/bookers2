@@ -17,11 +17,7 @@
        <tbody>
            <tr>
                <td>
-                <% if user.image.attached? %>
-                  <%= image_tag user.image, size: "80x80" %>
-                <% else %>
-                  <%= image_tag 'default-image', size: "80x80" %>
-                <% end %>
+                  <%= image_tag user.get_image(80,80)  %>
                </td>
                <td>
                 <%= user.name %>

@@ -8,16 +8,12 @@
   <table class="table">
     <tbody>
       <tr>
-        <%= link_to book_path do %>
         <td>
-          <% if @user.image.attached? %>
-            <%= image_tag current_usar.image, size: "80x80" %>
-          <% else %>
-            <%= image_tag 'default-image', size: "80x80" %>
-          <% end %>
+          <%= link_to book_path do %>
+            <%= image_tag current_user.get_image(80,80) %>
           <br><%= current_user.name %>
+          <% end %>
         </td>
-        <% end %>
         <td>
           <%= link_to book_path do %><%= @book_show.title %><% end %>
         </td>
@@ -25,10 +21,14 @@
           <%= @book_show.body %>
         </td>
         <td>
-          <%= link_to"Edit", edit_book_path, class: "btn btn-sm btn-success" %>
+          <% if @book_show.user == current_user %>
+            <%= link_to"Edit", edit_book_path, class: "btn btn-sm btn-success" %>
+          <% end %>
         </td>
         <td>
-          <%= link_to"Destroy", book_path(@book_show.id), class: "btn btn-sm btn-danger", method: :delete %>
+          <% if @book_show.user == current_user %>
+            <%= link_to"Destroy", book_path(@book_show.id), class: "btn btn-sm btn-danger", method: :delete %>
+          <% end %>
         </td>
       </tr>
     </tbody>
