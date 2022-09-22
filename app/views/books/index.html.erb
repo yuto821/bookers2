@@ -2,7 +2,7 @@
 <p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <% if @book.errors.any? %>
-  <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
+  <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -27,7 +27,7 @@
               <tr>
                   <td>
                   <%= link_to user_path(book.user) do%>
-                        <%= image_tag book.user.get_image(80,80) %>
+                        <%= image_tag book.user.get_profile_image(80,80) %>
                   <% end %>
 　　　　　　      </td>
 　　　　　　      <td>

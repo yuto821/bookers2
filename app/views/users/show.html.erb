@@ -18,7 +18,7 @@
           </thead>
           <tbody>
             <th>
-                <%= link_to user_path(@user) do %><%= image_tag book.user.get_image(80,80) %><% end %>
+                <%= link_to user_path(@user) do %><%= image_tag book.user.get_profile_image(80,80) %><% end %>
             </th>
             <th><%= link_to book_path(book.id) do %><%= book.title %><% end %></th>
             <th><%= book.body %></th>

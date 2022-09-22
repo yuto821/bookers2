@@ -9,13 +9,13 @@
     <tbody>
       <tr>
         <td>
-          <%= link_to book_path do %>
-            <%= image_tag current_user.get_image(80,80) %>
-          <br><%= current_user.name %>
+          <%= link_to user_path(@user.id) do %>
+            <%= image_tag @user.get_profile_image(80,80) %>
+          <br><%= @user.name %>
           <% end %>
         </td>
         <td>
-          <%= link_to book_path do %><%= @book_show.title %><% end %>
+          <%= link_to user_path(@user.id) do %><%= @book_show.title %><% end %>
         </td>
         <td>
           <%= @book_show.body %>
